@@ -1,7 +1,5 @@
 'use strict';
 
-//:TODO create object literal for each store
-
 // Object Literal Data for Stores
 let firstAndPike = {
   storeName: 'First and Pike',
@@ -45,8 +43,7 @@ let alki = {
 
 let stores = [firstAndPike, seattleCenter, seatacAirport, capitolHill, alki ];
 const storeHours = ['9am','10am','11am','12pm','1pm','2pm','3pm','4pm','5pm','6pm','7pm','8pm'];
-
-var count = 0;
+let count = 0;
 
 // Call Main Function to generate sales
 calculateStoreSales();
@@ -78,21 +75,14 @@ function randomSalesGenerator(minimumCustomers, maximumCustomers, averageSales){
 }
 
 
-// Helper functiomn to add and append elements to the DOM
+// Helper function to add and append elements to the DOM
 function addElement(element, content, parent)
 {
   let docAdd = document.getElementsByTagName(parent);
-  console.log('first');
-  console.log('this right here: ' , docAdd[0]);
-
   let newElement = document.createElement(element);
-  console.log('second');
   let newContent = document.createTextNode(content);
-  console.log('third');
   newElement.appendChild(newContent);
-  console.log('fourth');
-  console.log(count);
-  console.log(docAdd);
+  console.log('docadd beofore append child: ',docAdd);
   docAdd[0].appendChild(newElement);
   console.log(newContent);
 }
