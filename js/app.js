@@ -8,7 +8,7 @@ let firstAndPike = {
   totalSales: 0,
   minimumCustomers: 23,
   maximumCustomers: 65,
-  averageSales:  6.3
+  averageSales: 6.3
 };
 
 let seatacAirport = {
@@ -16,7 +16,7 @@ let seatacAirport = {
   totalSales: 0,
   minimumCustomers: 3,
   maximumCustomers: 24,
-  averageSales:  1.2
+  averageSales: 1.2
 };
 
 let seattleCenter = {
@@ -24,7 +24,7 @@ let seattleCenter = {
   totalSales: 0,
   minimumCustomers: 11,
   maximumCustomers: 38,
-  averageSales:  3.7
+  averageSales: 3.7
 };
 
 let capitolHill = {
@@ -32,7 +32,7 @@ let capitolHill = {
   totalSales: 0,
   minimumCustomers: 20,
   maximumCustomers: 38,
-  averageSales:  2.3
+  averageSales: 2.3
 };
 
 let alki = {
@@ -40,11 +40,11 @@ let alki = {
   totalSales: 0,
   minimumCustomers: 2,
   maximumCustomers: 16,
-  averageSales:  4.6
+  averageSales: 4.6
 };
 
-let stores = [firstAndPike, seattleCenter, seatacAirport, capitolHill, alki ];
-const storeHours = ['9am','10am','11am','12pm','1pm','2pm','3pm','4pm','5pm','6pm','7pm','8pm'];
+let stores = [firstAndPike, seattleCenter, seatacAirport, capitolHill, alki];
+const storeHours = ['9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm', '8pm'];
 
 var count = 0;
 
@@ -54,45 +54,37 @@ calculateStoreSales();
 
 function calculateStoreSales() {
   for (let i = 0; i < stores.length; i++) {
-    console.log('Start of loop');
     count = i;
-    console.log(count);
+
     // Add P tag to Main
-    addElement('p',stores[i].storeName,'main');
-    console.log('between elements');
+    addElement('p', stores[i].storeName, 'main');
+
     // Add UL to P tag
-    addElement('ul','','p');
-    // console.log('in the loop with ' + 'i is ' + i + ' count is ' + count);
+    addElement('ul', '', 'p');
+
     for (let j = 0; j < storeHours.length; j++) {
       addElement('li', randomSalesGenerator(stores[i].minimumCustomers, stores[i].maximumCustomers, stores[i].averageSales), 'ul');
     }
-        // console.log('Store Total: ' + stores[i].totalSales)
   }
 }
 
 // Function to randomize sales numbers based on min, max, and average sales.
-function randomSalesGenerator(minimumCustomers, maximumCustomers, averageSales){
-    let salesNumber = Math.round(Math.floor(Math.random() * ((maximumCustomers - minimumCustomers + 1) ) + minimumCustomers) * averageSales);
-    return salesNumber;
-    // TODO: Track total Sales
+function randomSalesGenerator(minimumCustomers, maximumCustomers, averageSales) {
+  let salesNumber = Math.round(Math.floor(Math.random() * ((maximumCustomers - minimumCustomers + 1)) + minimumCustomers) * averageSales);
+  return salesNumber;
+  // TODO: Track total Sales
 }
 
 
 // Helper functiomn to add and append elements to the DOM
-function addElement(element, content, parent)
-{
+function addElement(element, content, parent) {
   let docAdd = document.getElementsByTagName(parent);
-  console.log('first');
-  console.log('this right here: ' , docAdd[0]);
-
   let newElement = document.createElement(element);
-  console.log('second');
   let newContent = document.createTextNode(content);
-  console.log('third');
   newElement.appendChild(newContent);
-  console.log('fourth');
-  console.log(count);
-  console.log(docAdd);
-  docAdd[0].appendChild(newElement);
-  console.log(newContent);
+  // docAdd[0].appendChild(newElement);
+
+  for (let i = 0; i < docAdd.length; i++) {
+    docAdd[i].appendChild(newElement);
+  }
 }
