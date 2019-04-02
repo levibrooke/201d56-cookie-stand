@@ -42,48 +42,57 @@ let alki = {
   maximumCustomers: 16,
   averageSales:  4.6
 };
+
 let stores = [firstAndPike, seattleCenter, seatacAirport, capitolHill, alki ];
 const storeHours = ['9am','10am','11am','12pm','1pm','2pm','3pm','4pm','5pm','6pm','7pm','8pm'];
 
+var count = 0;
 
-// TODO: Call Main Functuon to generate sales
+// Call Main Function to generate sales
 calculateStoreSales();
 
 
 function calculateStoreSales() {
-  // for (let i = 0; i < stores.length; i++){
-    // TODO: add element store name
-  stores.forEach(store => {
+  for (let i = 0; i < stores.length; i++) {
+    console.log('Start of loop');
+    count = i;
+    console.log(count);
+    // Add P tag to Main
+    addElement('p',stores[i].storeName,'main');
+    console.log('between elements');
+    // Add UL to P tag
+    addElement('ul','','p');
+    // console.log('in the loop with ' + 'i is ' + i + ' count is ' + count);
     for (let j = 0; j < storeHours.length; j++) {
-      // TODO: add element hours
-      addElement('li',randomSalesGenerator(store.minimumCustomers,store.maximumCustomers,store.averageSales),'ul');
+      addElement('li', randomSalesGenerator(stores[i].minimumCustomers, stores[i].maximumCustomers, stores[i].averageSales), 'ul');
     }
-  // }
-      })
+        // console.log('Store Total: ' + stores[i].totalSales)
+  }
 }
-
-// TODO: Still need to calculate and track total sales
 
 // Function to randomize sales numbers based on min, max, and average sales.
 function randomSalesGenerator(minimumCustomers, maximumCustomers, averageSales){
-  console.log(minimumCustomers, maximumCustomers, averageSales)
     let salesNumber = Math.round(Math.floor(Math.random() * ((maximumCustomers - minimumCustomers + 1) ) + minimumCustomers) * averageSales);
-    console.log('Sales: ' + salesNumber)
     return salesNumber;
+    // TODO: Track total Sales
 }
 
+
+// Helper functiomn to add and append elements to the DOM
 function addElement(element, content, parent)
 {
-  console.log(element + ' :element');
-  console.log(content + ' :content');
-  console.log(parent + ' :parent');
+  let docAdd = document.getElementsByTagName(parent);
+  console.log('first');
+  console.log('this right here: ' , docAdd[0]);
+
   let newElement = document.createElement(element);
-  console.log(newElement)
+  console.log('second');
   let newContent = document.createTextNode(content);
-  console.log(newContent)
+  console.log('third');
   newElement.appendChild(newContent);
-  parent.appendChild(newElement);
-  return newElement;
+  console.log('fourth');
+  console.log(count);
+  console.log(docAdd);
+  docAdd[0].appendChild(newElement);
+  console.log(newContent);
 }
-
-
