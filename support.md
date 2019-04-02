@@ -1,9 +1,3 @@
-# 201d56-cookie-stand
-Salmon Cookies Project
-
-#Author
-Roger Huba
-
 # Problem domain:
 Your friend Pat has come up with a business idea by combining two signature Seattle icons: Pat has developed a recipe for a coffee-time confection called Salmon Cookies.
 
@@ -66,10 +60,10 @@ Here are the starting numbers that you'll need to build these objects:
 
 Location        | Min / Cust | Max / Cust | Avg Cookie / Sale
 ----------------|------------|------------|-------------------
-1st and Pike    |      23    |     65     |        6.3
+1st and Pike      |      23    |     65     |        6.3
 SeaTac Airport  |      3     |     24     |        1.2
-Seattle Center  |      11    |     38     |        3.7
-Capitol Hill    |      20    |     38     |        2.3
+Seattle Center     |      11    |     38     |        3.7
+Capitol Hill |      20    |     38     |        2.3
 Alki            |      2     |     16     |        4.6
 
 These numbers are simply Pat's estimates for now, but eventually, once there has been some history collected that provides more accurate numbers, we'll want the ability to update these numbers for each location, and to add/remove locations. But we'll not build all of that today. **Make sure to make each location is its own JavaScript object**.
@@ -88,7 +82,3 @@ Besides using the picture of the fish... you should use...
 7. Anything else you'd like to add related to style. But remember: simplicity, clarity,  and consistency are good things in design.
 8. Be thoughtful about layout and overall organization of the page.
 9. Include all of the typical stuff that you'll find on the home page of a business: locations, hours, contact information, some text about how awesome the business is, etc. Be creative, and again, think about what is meaningful to a typical end user.
-
-
-#Version
-4/1 - Initial scaffolding and setup of data.
